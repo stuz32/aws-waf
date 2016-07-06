@@ -1,12 +1,13 @@
-> This commit has breaking changes that will stay firm moving forward. For original, early adopters please use [release v0.91](https://github.com/deep-security/aws-waf/releases/tag/v0.91)...but move to the current one when you can, it's **way better** ;-)
+> This commit has breaking changes that will stay firm moving forward. Please use stable release [release v2.01](https://github.com/deep-security/aws-waf/tree/v2.01)
 
 # Deep Security AWS WAF Integration
 
-A simple tool set to help build AWS WAF rule sets based on intelligence from Deep Security. 
+A simple tool set to help build AWS WAF rule sets based on intelligence from Deep Security.
 
 ## Index
 
 - [Pre-Requisites](#pre-requisites)
+- [Deep Security role-based permissions](#deep_security_role_config)
 - [Usage](#usage)
    - [iplists](#usage-iplists)
    - [sqli & xss](#usage-sqli-xss)
@@ -22,6 +23,26 @@ A simple tool set to help build AWS WAF rule sets based on intelligence from Dee
 ```bash
 pip install -r requirements.txt
 ```
+
+<a name="deep_security_role_config" />
+## Deep Security role-based permission configuration
+You'll notice in the examples, the password is set to USE_RBAC_TO_REDUCE_RISK. In this context, RBAC stands for role based access control.
+
+Currently Deep Security treats API access just like a user logging in. Therefore it is strongly recommended that you create a new Deep Security user for use with this script. This user should have the bare minimum permissions required to complete the tasks.
+
+Please follow the below steps to correctly create a new user with the appropriate role permissions
+1. Log into Deep Security as the administrator
+2. Select 'Administration' > 'User Management' > 'Roles'
+3. Select the 'Operator' role in the list (this will have minimum access rights by default)
+4. Click the 'Duplicate' button
+4. Rename your duplicated role 'API Access'
+5. Double click 'API Access' role
+6. On the next screen, select the 'General' tab, within the 'Access Type' section, Un-Check 'Allow Access to Deep Security Manager User Interface'. Check 'Allow Access to web services API'
+7. Click 'Apply' and close the window
+8. Select 'Administration' > 'User Management' > 'Users'
+9. Select 'New...' button
+10. Complete the form and ensure you select 'API access' for the role.
+11. Click the 'Save' button
 
 <a name="usage" />
 
@@ -94,10 +115,6 @@ ds-to-aws-waf [COMMAND] -u admin -p USE_RBAC_TO_REDUCE_RISK -t MY_ACCOUNT
 ```
 
 Each individual command will also have it's own options that allow you to control the behaviour of the command.
-
-You'll notice in the examples, the password is set to USE_RBAC_TO_REDUCE_RISK. In this context, RBAC stands for role based access control.
-
-Currently Deep Security treats API access just like a user logging in. Therefore it is strongly recommended that you create a new Deep Security user for use with this script. This user should have the bare minimum permissions required to complete the tasks.
 
 <a name="usage-iplists" />
 
