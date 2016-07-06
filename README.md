@@ -30,19 +30,23 @@ You'll notice in the examples, the password is set to USE_RBAC_TO_REDUCE_RISK. I
 
 Currently Deep Security treats API access just like a user logging in. Therefore it is strongly recommended that you create a new Deep Security user for use with this script. This user should have the bare minimum permissions required to complete the tasks.
 
-Please follow the below steps to correctly create a new user with the appropriate role permissions
+Please follow the below steps to correctly create a new user with the appropriate role permissions;
+
 1. Log into Deep Security as the administrator
-2. Select 'Administration' > 'User Management' > 'Roles'
-3. Select the 'Operator' role in the list (this will have minimum access rights by default)
-4. Click the 'Duplicate' button
-4. Rename your duplicated role 'API Access'
-5. Double click 'API Access' role
-6. On the next screen, select the 'General' tab, within the 'Access Type' section, Un-Check 'Allow Access to Deep Security Manager User Interface'. Check 'Allow Access to web services API'
-7. Click 'Apply' and close the window
-8. Select 'Administration' > 'User Management' > 'Users'
-9. Select 'New...' button
-10. Complete the form and ensure you select 'API access' for the role.
-11. Click the 'Save' button
+2. Select _Administration_ > _User Management_ > _Roles_
+3. Select the _Operator_ role in the list (this will have minimum access rights by default)
+4. Click the _Duplicate_ button
+4. Rename your duplicated role _API Access_
+5. Double click _API Access_ role
+6. On the next screen, select the _General_ tab, within the _Access Type_ section
+  * Un-Check _Allow Access to Deep Security Manager User Interface_
+  * Check _Allow Access to web services API_
+7. Click _Apply_ and close the window
+8. Select _Administration_ > _User Management_ > _Users_
+9. Select _New..._ button
+10. Complete the form and ensure you select _API access_ for the role
+11. Click the _Save_ button
+12. Use this new account when accessing your Deep Security instance
 
 <a name="usage" />
 
